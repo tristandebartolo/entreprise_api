@@ -1,0 +1,8 @@
+name: 'Entreprise API'
+type: module
+description: 'API REST custom pour les données entreprise : informations du site et taxonomies.'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:basic_auth
+  - drupal:user

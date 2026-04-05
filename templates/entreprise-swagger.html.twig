@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Template pour l'interface Swagger UI de l'API Entreprise.
+ *
+ * Variables :
+ *   - spec : tableau de specification API (groups, info, auth).
+ */
+#}
+<div class="swagger-ui">
+  <header class="swagger-header">
+    <h1>{{ spec.info.title }} <span class="swagger-version">{{ spec.info.version }}</span></h1>
+    <p class="swagger-description">{{ spec.info.description }}</p>
+  </header>
+
+  <section class="swagger-auth">
+    <h2>Authentification</h2>
+    <ul>
+      <li><strong>Cookie :</strong> {{ spec.auth.cookie }}</li>
+      <li><strong>Basic Auth :</strong> {{ spec.auth.basic_auth }}</li>
+    </ul>
+  </section>
+
+  {% for group in spec.groups %}
+  <section class="swagger-group">
+    <h2>{{ group.name }}</h2>
+    <p class="swagger-group-desc">{{ group.description }}</p>
+
+    {% for endpoint in group.endpoints %}
+    <div class="swagger-endpoint" data-method="{{ endpoint.method }}" data-path="{{ endpoint.path }}">
+      <div class="swagger-endpoint-header">
+        <span class="swagger-method swagger-method--{{ endpoint.method|lower }}">{{ endpoint.method }}</span>
+        <code class="swagger-path">{{ endpoint.path }}</code>
+        <span class="swagger-summary">{{ endpoint.summary }}</span>
+        <span class="swagger-permission">{{ endpoint.permission }}</span>
+      </div>
+
+      <div class="swagger-endpoint-body" style="display: none;">
+        {% if endpoint.parameters is defined and endpoint.parameters|length > 0 %}
+        <h4>Parametres</h4>
+        <table class="swagger-params">
+          <thead>
+            <tr><th>Nom</th><th>In</th><th>Requis</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            {% for param in endpoint.parameters %}
+            <tr>
+              <td><code>{{ param.name }}</code></td>
+              <td>{{ param.in }}</td>
+              <td>{{ param.required ? 'oui' : 'non' }}</td>
+              <td>{{ param.description }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
+
+        {% if endpoint.notes is defined %}
+        <p class="swagger-note"><strong>Note :</strong> {{ endpoint.notes }}</p>
+        {% endif %}
+
+        <h4>Exemple de reponse</h4>
+        <pre class="swagger-code swagger-response-example">{{ endpoint.response_example|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES')) }}</pre>
+
+        <div class="swagger-try">
+          <h4>Tester</h4>
+          <div class="swagger-try-form">
+            <input type="text" class="swagger-try-url" value="{{ endpoint.path }}" />
+            <button class="swagger-try-btn button button--primary" type="button">Envoyer</button>
+          </div>
+          <pre class="swagger-try-result"></pre>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+</div>

@@ -1,0 +1,9 @@
+swagger:
+  version: '1.0'
+  css:
+    theme:
+      css/swagger.css: {}
+  js:
+    js/swagger.js: {}
+  dependencies:
+    - core/drupalSettings

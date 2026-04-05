@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Module Entreprise API.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function entreprise_api_theme(): array {
+  return [
+    'entreprise_swagger' => [
+      'variables' => [
+        'spec' => NULL,
+      ],
+      'template' => 'entreprise-swagger',
+    ],
+  ];
+}

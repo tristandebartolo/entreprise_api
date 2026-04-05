@@ -1,0 +1,12 @@
+entreprise api read public:
+  title: 'Entreprise API : Lecture des données publiques'
+  description: 'Consulter les endpoints publics de l''API Entreprise (GET).'
+
+entreprise api read private:
+  title: 'Entreprise API : Lecture des données privées'
+  description: 'Consulter les endpoints privés de l''API Entreprise (GET).'
+
+entreprise api administer:
+  title: 'Entreprise API : Administration'
+  description: 'Accéder à la documentation Swagger et à la configuration.'
+  restrict access: true

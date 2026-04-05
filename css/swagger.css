@@ -1,0 +1,227 @@
+/**
+ * @file
+ * Styles pour l'interface Swagger UI de entreprise_api.
+ */
+
+.swagger-ui {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1a1a1a;
+}
+
+.swagger-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.swagger-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.swagger-version {
+  font-size: 0.875rem;
+  font-weight: normal;
+  color: #666;
+  background: #f0f0f0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+.swagger-description {
+  margin: 0;
+  color: #555;
+}
+
+/* Auth */
+.swagger-auth {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.swagger-auth h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.swagger-auth ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+/* Groups */
+.swagger-group {
+  margin-bottom: 2rem;
+}
+
+.swagger-group h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.swagger-group-desc {
+  color: #555;
+  margin-top: 0;
+}
+
+/* Endpoints */
+.swagger-endpoint {
+  margin: 0.75rem 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.swagger-endpoint-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  background: #fafafa;
+  flex-wrap: wrap;
+}
+
+.swagger-endpoint-header:hover {
+  background: #f0f0f0;
+}
+
+.swagger-method {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  min-width: 50px;
+  text-align: center;
+}
+
+.swagger-method--get { background: #61affe; }
+.swagger-method--post { background: #49cc90; }
+.swagger-method--patch { background: #fca130; }
+.swagger-method--delete { background: #f93e3e; }
+
+.swagger-path {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.swagger-summary {
+  color: #555;
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.swagger-permission {
+  font-size: 0.75rem;
+  color: #888;
+  background: #f0f0f0;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  font-family: monospace;
+}
+
+/* Endpoint body */
+.swagger-endpoint-body {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+
+.swagger-endpoint-body h4 {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.swagger-endpoint-body h4:first-child {
+  margin-top: 0;
+}
+
+/* Params table */
+.swagger-params {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.swagger-params th,
+.swagger-params td {
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.swagger-params th {
+  background: #f8f8f8;
+  font-weight: 600;
+}
+
+.swagger-note {
+  font-size: 0.85rem;
+  color: #856404;
+  background: #fff3cd;
+  padding: 0.4rem 0.6rem;
+  border-radius: 3px;
+  border: 1px solid #ffeeba;
+}
+
+/* Code blocks */
+.swagger-code {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Try section */
+.swagger-try {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #ddd;
+}
+
+.swagger-try-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 600px;
+}
+
+.swagger-try-url {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.swagger-try-btn {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.swagger-try-result {
+  margin-top: 0.5rem;
+  min-height: 2rem;
+}
+
+.swagger-try-result:empty {
+  display: none;
+}

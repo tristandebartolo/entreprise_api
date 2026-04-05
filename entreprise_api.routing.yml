@@ -1,0 +1,56 @@
+# ============================================================
+# API v1 — Entreprise
+# ============================================================
+
+# GET site info (nom, slogan, logo)
+entreprise_api.v1.site_info:
+  path: '/api/entreprise/site-info'
+  defaults:
+    _controller: '\Drupal\entreprise_api\Controller\EntrepriseApiController::siteInfo'
+  methods: [GET]
+  requirements:
+    _permission: 'entreprise api read public'
+  options:
+    _auth: ['basic_auth', 'cookie']
+    no_cache: TRUE
+
+# GET termes d'un vocabulaire (paginé)
+# Query params : ?langcode=fr&ipp=10&page=1
+entreprise_api.v1.terms_by_vocabulary:
+  path: '/api/entreprise/terms/{vid}'
+  defaults:
+    _controller: '\Drupal\entreprise_api\Controller\EntrepriseApiController::termsByVocabulary'
+  methods: [GET]
+  requirements:
+    _permission: 'entreprise api read public'
+    vid: '[a-z_]+'
+  options:
+    _auth: ['basic_auth', 'cookie']
+    no_cache: TRUE
+
+# ============================================================
+# Documentation Swagger
+# ============================================================
+
+# Swagger UI
+entreprise_api.swagger.ui:
+  path: '/entreprise-api/swagger'
+  defaults:
+    _controller: '\Drupal\entreprise_api\Controller\SwaggerController::ui'
+    _title: 'Entreprise API Documentation'
+  requirements:
+    _permission: 'entreprise api administer'
+  options:
+    _admin_route: TRUE
+    no_cache: TRUE
+
+# Spécification JSON
+entreprise_api.swagger.spec:
+  path: '/entreprise-api/swagger/spec'
+  defaults:
+    _controller: '\Drupal\entreprise_api\Controller\SwaggerController::spec'
+  methods: [GET]
+  requirements:
+    _permission: 'entreprise api administer'
+  options:
+    no_cache: TRUE

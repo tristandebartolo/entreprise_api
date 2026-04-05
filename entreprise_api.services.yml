@@ -1,0 +1,13 @@
+services:
+  entreprise_api.service:
+    class: Drupal\entreprise_api\Service\EntrepriseService
+    arguments:
+      - "@config.factory"
+      - "@entity_type.manager"
+      - "@file_url_generator"
+      - "@theme_handler"
+      - "@language_manager"
+
+  logger.channel.entreprise_api:
+    parent: logger.channel_base
+    arguments: ["entreprise_api"]
