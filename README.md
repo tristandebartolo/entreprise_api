@@ -1,13 +1,13 @@
 # Entreprise API
 
-Module Drupal 11 d'exemple illustrant la creation d'une API REST custom avec documentation Swagger integree, sans dependance externe.
+Module Drupal 11 d'exemple illustrant la création d'une API REST custom avec documentation Swagger integrée, sans dépendance externe.
 
 Ce module accompagne l'article technique :
-**[Creer une API REST custom Drupal avec documentation Swagger integree](../../../../doc/003-creer-une-api-rest-custom-drupal-avec-documentation-swagger-integree.md)**
+**[Creer une API REST custom Drupal avec documentation Swagger integree](https://communication.baarr.fr/drupal/creer-une-api-rest-custom-drupal-11-avec-documentation-swagger-integree)**
 
 ## Endpoints
 
-| Methode | Route | Description |
+| Méthode | Route | Description |
 |---------|-------|-------------|
 | GET | `/api/entreprise/site-info` | Informations du site (nom, slogan, logo) |
 | GET | `/api/entreprise/terms/{vid}` | Termes d'un vocabulaire (pagine) |
@@ -39,36 +39,17 @@ drush cr
 ```
 src/
   Controller/
-    EntrepriseApiController.php   # Endpoints API (validation, delegation, reponse JSON)
+    EntrepriseApiController.php   # Endpoints API (validation, délégation, reponse JSON)
     SwaggerController.php         # Page Swagger UI + spec JSON
   Service/
     EntrepriseServiceInterface.php # Contrat du service metier
-    EntrepriseService.php          # Logique d'acces aux donnees
-  EntrepriseApiDocumentation.php   # Specification des endpoints pour Swagger
+    EntrepriseService.php          # Logique d'accès aux données
+  EntrepriseApiDocumentation.php   # Spécification des endpoints pour Swagger
 ```
 
-Le controleur valide les parametres et delegue au service. Le service encapsule les requetes Drupal. La classe de documentation alimente le Swagger UI via un template Twig.
+Le controleur valide les paramètres et délégue au service. Le service encapsule les requêtes Drupal. La classe de documentation alimente le Swagger UI via un template Twig.
 
-## Format de reponse
 
-Succes :
-
-```json
-{
-  "ok": true,
-  "data": { ... },
-  "meta": { "langcode": "fr" }
-}
-```
-
-Erreur :
-
-```json
-{
-  "ok": false,
-  "error": "Vocabulaire 'xyz' introuvable."
-}
-```
 
 ## Authentification
 
